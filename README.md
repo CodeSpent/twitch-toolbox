@@ -3,9 +3,7 @@
   <h3 align="center">Twitch Clip Manager CLI</h3>
 
   <p align="center">
-    An awesome cross-platform CLI to manage your Twitch clips in bulk~
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    An awesome cross-platform CLI to manage your Twitch clips in bulk.
     <br />
     <br />
     <a href="https://github.com/CodeSpent/twitch-clip-manager/issues/new">Report Bug</a>
