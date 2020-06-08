@@ -1,6 +1,9 @@
 # cache files
 *.pyc
 
+# log files
+*.log
+
 # environment directories
 .venv/
 .vscode/
