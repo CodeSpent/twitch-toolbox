@@ -33,6 +33,16 @@ This project is currently in very early stages of development, and I had to rush
 
 ## Usage
 
+### Linux
+Download the latest release binary.
+
+Make the binary executable by navigating to the saved directory.
+`chmod +x clip-manager`
+
+### Windows
+Download the latest releast binary, and run the executable.
+
+### CLI Usage
 1. First run `clip-manager setup` to set up the cli.
 2. Run `clip-manager download` to download all your clips.
 3. Profit.
