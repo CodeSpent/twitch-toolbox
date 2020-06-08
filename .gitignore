@@ -8,6 +8,10 @@
 .venv/
 .vscode/
 
+# build directories
+/build
+/dist
+
 # output directories
 /clips
 
