@@ -1,0 +1,12 @@
+# cache files
+*.pyc
+
+# environment directories
+.venv/
+.vscode/
+
+# output directories
+/clips
+
+# configuration
+config.json
