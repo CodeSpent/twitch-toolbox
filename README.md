@@ -1,6 +1,7 @@
 <br />
 <p align="center">
   <h3 align="center">Twitch Clip Manager CLI</h3>
+  <img src="/screenshots/v0.0.1_menu.png" />
 
   <p align="center">
     An awesome cross-platform CLI to manage your Twitch clips in bulk.
@@ -44,8 +45,6 @@ Make the binary executable by navigating to the saved directory.
 Download the latest releast binary, and run the executable.
 
 ### CLI Usage
-[Imgur](https://imgur.com/YGsUFQU)
-
 - Launch the CLI and first choose `Configure` to set up the tool.
 - Create an app at https://dev.twitch.tv/ to get a Client-ID and Client-Secret
 - Relaunch the tool & select whichever options you'd like.
