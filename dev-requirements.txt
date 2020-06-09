@@ -1,0 +1,12 @@
+altgraph==0.17
+certifi==2020.4.5.2
+chardet==3.0.4
+fire==0.3.1
+idna==2.9
+PyInstaller==3.6
+requests==2.23.0
+selenium==3.141.0
+six==1.15.0
+soupsieve==2.0.1
+termcolor==1.1.0
+urllib3==1.25.9
