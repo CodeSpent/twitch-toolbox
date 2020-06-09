@@ -1,13 +1,19 @@
 # -*- mode: python ; coding: utf-8 -*-
+import os 
+import pyfiglet.fonts
+import wcwidth
 
 block_cipher = None
 
 
-a = Analysis(['clip-manager.py'],
+a = Analysis(['main.py'],
              pathex=[],
-             binaries=[('./drivers/geckodriver', './drivers'), ('./drivers/geckodriver.exe', './drivers') ],
-             datas=[],
-             hiddenimports=[],
+             binaries=[('./drivers/geckodriver', '../drivers'), ('./drivers/geckodriver.exe', '../drivers')],
+             datas=[
+                 (os.path.join(os.path.dirname(pyfiglet.fonts.__file__), "*.f*"), os.path.join("pyfiglet", "fonts")),
+                 (os.path.dirname(wcwidth.__file__), 'wcwidth')                 
+                 ],
+             hiddenimports=['tkinter', 'pyfiglet.fonts'],
              hookspath=[],
              runtime_hooks=[],
              excludes=[],
