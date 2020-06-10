@@ -1,6 +1,7 @@
 <br />
 <p align="center">
   <h3 align="center">Twitch Clip Manager CLI</h3>
+  <img src="/screenshots/v0.0.1_menu.png" />
 
   <p align="center">
     An awesome cross-platform CLI to manage your Twitch clips in bulk.
@@ -22,7 +23,8 @@ but manually downloading years worth of clips is just not viable. So I built the
 This project is currently in very early stages of development, and I had to rush development a bit for the users who requested it, so bare with me, and feel free to report any issues or feature requests.
 
 ### Built With
-* [Python Fire](https://github.com/google/python-fire)
+* [PyInquirer](https://github.com/CITGuru/PyInquirer/)
+* [PyFiglet](https://github.com/pwaller/pyfiglet)
 * [PyInstaller](https://github.com/pyinstaller/pyinstaller)
 
 
@@ -43,9 +45,16 @@ Make the binary executable by navigating to the saved directory.
 Download the latest releast binary, and run the executable.
 
 ### CLI Usage
-1. First run `clip-manager setup` to set up the cli.
-2. Run `clip-manager download` to download all your clips.
-3. Profit.
+- Launch the CLI and first choose `Configure` to set up the tool.
+- Create an app at https://dev.twitch.tv/ to get a Client-ID and Client-Secret
+- Relaunch the tool & select whichever options you'd like.
+
+### Features
+- Download all of your Twitch VODs.
+- Download all of your Twitch clips.
+
+### Roadmap
+- No official roadmap, but if you <a href="https://github.com/CodeSpent/twitch-clip-manager/issues/new">Request A Feature</a>, I'll gladly add it!
 
 ## Contributing
 

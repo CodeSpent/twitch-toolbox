@@ -10,8 +10,5 @@ setup(
     packages=["clip-manager"],
     include_package_data=True,
     entry_points={"console_scripts": ["clip-manager=clip-manager.__main__:main"]},
-    datas=[
-        ("drivers/geckodriver", "drivers/geckodriver"),
-        ("drivers/geckodriver.exe", "drivers/geckodriver.exe"),
-    ],
+    datas=[],
 )
