@@ -8,7 +8,7 @@ from cli.styles import twitch_theme
 import tkinter as tk
 from tkinter import filedialog
 from termcolor import colored
-from cli.utils import _create_configuration_file, _configuration_file_exists, _is_admin
+from cli.utils import _create_configuration_file, _configuration_file_exists
 from cli.downloader import Downloader
 import sys
 import os
@@ -77,10 +77,6 @@ configure_options = [
 main_menu = prompt(main_menu_options, style=twitch_theme)
 
 if main_menu["main"] == "Configure":
-    if not _is_admin():
-        print(colored("Please launch this application as admin to configure.", "red",))
-        sys.exit()
-
     if _configuration_file_exists():
         overwrite = _ask_for_confirmation(
             "Configuration already exists. Overwrite existing?"
