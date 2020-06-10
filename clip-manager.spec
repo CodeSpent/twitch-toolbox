@@ -13,7 +13,7 @@ a = Analysis(['main.py'],
                  (os.path.join(os.path.dirname(pyfiglet.fonts.__file__), "*.f*"), os.path.join("pyfiglet", "fonts")),
                  (os.path.dirname(wcwidth.__file__), 'wcwidth')                 
                  ],
-             hiddenimports=['tkinter', 'pyfiglet.fonts'],
+             hiddenimports=['tkinter', 'pyfiglet.fonts', 'pkg_resources.py2_warn'],
              hookspath=[],
              runtime_hooks=[],
              excludes=[],
