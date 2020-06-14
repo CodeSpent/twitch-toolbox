@@ -8,7 +8,7 @@ block_cipher = None
 
 a = Analysis(['main.py'],
              pathex=[],
-             binaries=[('./drivers/geckodriver', '../drivers'), ('./drivers/geckodriver.exe', '../drivers')],
+             binaries=[],
              datas=[
                  (os.path.join(os.path.dirname(pyfiglet.fonts.__file__), "*.f*"), os.path.join("pyfiglet", "fonts")),
                  (os.path.dirname(wcwidth.__file__), 'wcwidth')                 
