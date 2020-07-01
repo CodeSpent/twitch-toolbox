@@ -11,6 +11,7 @@ import datetime
 from dateutil import parser
 import pytz
 from pathlib import Path
+from werkzeug.utils import secure_filename
 
 
 class Downloader(object):
@@ -39,6 +40,8 @@ class Downloader(object):
     def _download_clip(self, source, filename):
         if " " in filename:
             filename = filename.replace(" ", "-")
+        filename = secure_filename(filename)
+
         downloaded_video = requests.get(source, stream=True)
         total_size = int(downloaded_video.headers.get("content-length", 0))
         block_size = 1024

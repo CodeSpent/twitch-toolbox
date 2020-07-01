@@ -40,12 +40,6 @@ class MyFigletFont(pyfiglet.FigletFont):
 pyfiglet.FigletFont = MyFigletFont
 
 print(pyfiglet.figlet_format("Twitch Toolbox"))
-print(
-    f"******************* Built with {colored('❤️', 'red')} by {colored('@CodeSpent', 'cyan')}. *******************".center(
-        10
-    )
-)
-
 
 def _ask_for_confirmation(message):
     confirmation_options = [{"type": "confirm", "name": "confirm", "message": message}]
