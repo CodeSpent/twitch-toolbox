@@ -1,5 +1,8 @@
 import requests
 import json
+import datetime
+from dateutil import parser
+import pytz
 
 
 class TwitchHelix(object):
@@ -16,6 +19,8 @@ class TwitchHelix(object):
         Returns headers dict for _request
         """
         headers = {}
+        headers["Connection"] = "keep-alive"
+
         if self.token is not None:
             headers["Authorization"] = f"Bearer {self.token}"
         if self.client_id is not None:
@@ -47,12 +52,22 @@ class TwitchHelix(object):
         """
         if method.lower() == "get":
             request_url = self.base_url + endpoint
-            response = requests.get(request_url, params=params, headers=self.headers)
-            data = response.json()
-            if "error" in data:
-                raise Exception(f"Error in {endpoint} _request: {data['error']}")
-            else:
+            try:
+                response = requests.get(
+                    request_url, params=params, headers=self.headers
+                )
+            except ConnectionError as e:
+                print(e)
+            if response.status_code == 200:
+                data = response.json()
                 return data
+            elif response.status_code == 500:
+                print("Twitch API Error")
+            else:
+                if "error" in data:
+                    print(f"Error in {endpoint} _request: {data['error']}")
+                else:
+                    return None
 
         elif method.lower() == "post":
             request_url = self.base_url + endpoint
@@ -78,7 +93,9 @@ class TwitchHelix(object):
 
         return data
 
-    def get_clips_by_user_login(self, user_login, first=100):
+    def get_clips_by_user_login(
+        self, user_login, first=100, started_at=None, ended_at=None
+    ):
         """
         Returns a list of all clips for requested user.
         """
@@ -87,14 +104,25 @@ class TwitchHelix(object):
         cursor = True
         clips = []
 
-        params = {"broadcaster_id": user_id}
         while cursor:
+            params = {
+                "broadcaster_id": user_id,
+                "started_at": started_at,
+                "ended_at": ended_at,
+                "first": first,
+            }
+
             if type(cursor) is not bool:
                 params["after"] = cursor
             response = self._request("get", "/clips", params)
+
+            if response is None or len(response["data"]) is 0:
+                return None
+
             [clips.append(x) for x in response["data"]]
 
             pagination = response["pagination"]
+
             if "cursor" in pagination:
                 cursor = response["pagination"]["cursor"]
             else:

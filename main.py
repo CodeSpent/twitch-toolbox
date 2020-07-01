@@ -68,6 +68,22 @@ configure_options = [
     {"type": "input", "name": "username", "message": "Twitch Username:"},
 ]
 
+
+clips_options = [
+    {
+        "type": "list",
+        "name": "download_type",
+        "message": "How do you want to download?",
+        "choices": ["Download all"],
+    },
+    {
+        "type": "input",
+        "name": "username",
+        "message": "Target user (leave blank for your own):",
+    },
+]
+
+
 main_menu = prompt(main_menu_options, style=twitch_theme)
 
 if main_menu["main"] == "Configure":
@@ -95,13 +111,19 @@ elif main_menu["main"] == "Download Clips":
     if not _configuration_file_exists():
         print(colored("You must configure the CLI first.", "red"))
         sys.exit()
-    clips = Downloader().download_all_clips()
-    if clips["success"]:
-        print(
-            colored(
-                f"Downloaded {clips['count']} clips to {clips['directory']} successfully!"
-            )
-        )
+
+    clips_menu = prompt(clips_options, style=twitch_theme)
+
+    if clips_menu["download_type"] == "Download all":
+        if clips_menu["username"] is "":
+            username = None
+        else:
+            username = clips_menu["username"]
+        clips = Downloader().download_all_clips(username=username)
+        if clips["success"]:
+            print(colored(f"Downloaded {clips['count']} clips successfully!"))
+    else:
+        pass
 
 elif main_menu["main"] == "Exit":
     sys.exit()
