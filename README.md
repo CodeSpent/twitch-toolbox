@@ -44,6 +44,9 @@ Make the binary executable by navigating to the saved directory.
 ### Windows
 Download the latest releast binary, and run the executable.
 
+### Mac
+Currently not supported, but welcoming [contributions](https://github.com/codespent/twitch-toolbox/issues/)
+
 ### CLI Usage
 - Launch the CLI and first choose `Configure` to set up the tool.
 - Create an app at https://dev.twitch.tv/ to get a Client-ID and Client-Secret
